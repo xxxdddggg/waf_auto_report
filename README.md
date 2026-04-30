@@ -1,6 +1,6 @@
 # WAF 安全事件自动化上报工具
 
-南京研发中心 WAF（Chaitin SafeLine）攻击事件自动上报工具。自动完成日志拉取、Excel填写、截图、打包全流程。
+某部门长亭WAF（Chaitin SafeLine）攻击事件自动上报工具。自动完成日志拉取、Excel填写、截图、打包全流程。
 
 ## 功能
 
