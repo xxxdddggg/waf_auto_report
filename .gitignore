@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+reported_ips.txt
+*.egg-info/
+.env
+.claude/settings.local.json

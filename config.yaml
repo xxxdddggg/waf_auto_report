@@ -1,0 +1,49 @@
+# WAF 安全事件自动化上报 - 配置文件
+
+# ===== WAF 平台配置 =====
+waf:
+  base_url: "https://YOUR_WAF_ADDRESS"
+  username: "YOUR_USERNAME"
+  password: "YOUR_PASSWORD"
+  alerts_url: "/#/detect/log"
+  headless: false
+  slow_mo: 500
+  screenshot_timeout: 10000
+  website_name: "YOUR_SITE_NAME"   # 只拉取该防护站点的日志，留空或注释则不过滤
+
+# ===== 输出配置 =====
+output:
+  base_dir: "C:/Users/XXX/Desktop/南研"
+  template_excel: "C:/Users/XXX/project2/waf_auto_report/安全事件汇总.xlsx"
+  prefix: "XXXXX-安全事件上报"
+  org_name: "XXXXX"
+
+# ===== 邮件上报配置 =====
+email:
+  enabled: false
+  smtp_host: "smtp.example.com"
+  smtp_port: 465
+  sender: "your_email@example.com"
+  sender_password: "your_email_password"
+  recipients:
+    - "recipient@example.com"
+  cc:
+    - "cc1@example.com"
+    - "cc2@example.com"
+
+# ===== 攻击类型 → 事件分类映射（取自 report.py）=====
+classification:
+  "信息泄露": ["信息破坏事件(IDI)", "信息泄漏事件(ILEI)"]
+  "未授权访问": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
+  "SQL 注入": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
+  "代码注入": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
+  "XSS": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
+  "命令注入": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
+  "文件包含": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
+  "路径遍历": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
+  "扫描": ["网络攻击事件(NAI)", "网络扫描窃听事件(NSEI)"]
+  "拒绝服务": ["网络攻击事件(NAI)", "拒绝服务攻击事件(DOSAI)"]
+  "木马": ["有害程序事件(MI)", "特洛伊木马事件(THI)"]
+  "后门": ["网络攻击事件(NAI)", "后门攻击事件(BDAI)"]
+  "恶意代码": ["有害程序事件(MI)", "网页内嵌恶意代码事件(WBPI)"]
+  "_default": ["网络攻击事件(NAI)", "漏洞攻击事件(VAI)"]
